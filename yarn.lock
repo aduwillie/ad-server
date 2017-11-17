@@ -12,6 +12,10 @@
   version "8.0.53"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-8.0.53.tgz#396b35af826fa66aad472c8cb7b8d5e277f4e6d8"
 
+ad-server@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/ad-server/-/ad-server-1.0.0.tgz#dfce1ea4ef466c5ab3344fb2d389c74a6499043b"
+
 ansi-styles@^3.1.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-3.2.0.tgz#c159b8d5be0f9e5a6f346dab94f16ce022161b88"
