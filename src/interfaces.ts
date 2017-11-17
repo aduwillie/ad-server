@@ -5,6 +5,8 @@ export interface IServerOptions {
         key: string;
         cert: string;
     };
+    serveStaticFiles: boolean;
+    allowCors: boolean;
 }
 
 export interface IRequest {

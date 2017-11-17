@@ -1,7 +1,10 @@
 const AdServer = require('../dist/server');
 const path = require('path');
 
-const Server = new AdServer({ port: 3000, publicDirectory: path.resolve(__dirname, 'public') });
+const Server = new AdServer({
+    port: 3000, 
+    publicDirectory: path.resolve(__dirname, 'public') 
+});
 
 Server.addRoute({
     path: '/',

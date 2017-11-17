@@ -1,0 +1,18 @@
+export const STATIC_FILE_TYPES: string[] = [
+    '.txt',
+    '.html',
+    '.css',
+    '.js',
+    '.png',
+    '.jpg',
+    '.jpeg',
+    '.bmp',
+    '.webp',
+    '.midi',
+    '.webm',
+    '.wav',
+    '.mp4',
+    '.mp3',
+    '.pdf',
+    '.xml',
+];
