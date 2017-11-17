@@ -21,6 +21,9 @@
   },
   "homepage": "https://github.com/aduwillie/ad-server#readme",
   "devDependencies": {
+    "@types/chalk": "^2.2.0",
+    "@types/node": "^8.0.53",
+    "chalk": "^2.3.0",
     "typescript": "^2.6.1"
   }
 }
