@@ -68,7 +68,7 @@ export const getFileType = (filename: string) => {
         }
     }
     return type;
-}
+};
 
 export const getMimeType = (filename: string) => {
     switch (filename) {
@@ -102,7 +102,19 @@ export const getMimeType = (filename: string) => {
         case '.pdf':
             return 'application/pdf';
         case '.xml':
-            return 'application/xml'
+            return 'application/xml';
+        case '.json':
+            return 'application/json';
+        case '.woff':
+            return 'application/font-woff';
+        case '.ttf':
+            return 'application/font-ttf';
+        case '.eot':
+            return 'application/vnd.ms-fontobject';
+        case '.otf':
+            return 'application/font-otf';
+        case '.svg':
+            return 'application/image/svg+xml';
         default:
             'text/plain';
     }

@@ -15,4 +15,10 @@ export const STATIC_FILE_TYPES: string[] = [
     '.mp3',
     '.pdf',
     '.xml',
+    'json',
+    'woff',
+    'tty',
+    'eof',
+    'otf',
+    'svg',
 ];
