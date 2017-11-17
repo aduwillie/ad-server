@@ -15,6 +15,8 @@ export interface IRequest {
 }
 
 export interface IResponse {
+    usePublicDirectory?: boolean;
+
     send: (data: any) => void;
     sendJSON: (data: any) => void;
     sendFile: (filePath: string) => void;
@@ -25,11 +27,15 @@ export interface IRequestHandler {
     (request: IRequest, response: IResponse): void;
 }
 
+export interface IRouteHandlerOptions {
+    usePublicDirectory: boolean;
+}
+
 export interface IRouteOptions {
     path: string;
     method: string;
     handler: IRequestHandler;
-    [propname: string]: any;
+    options: IRouteHandlerOptions;
 }
 
 export interface IServer {

@@ -9,6 +9,8 @@ import {
 
 import { createRequestObj, createResponseObj } from './utils';
 
+declare const module: any;
+
 class Server implements IServer {
     private routes: IRouteOptions[];
 
@@ -40,12 +42,15 @@ class Server implements IServer {
             : http.createServer();
         server.on('request', (request, response) => {
             const req = createRequestObj(request);
-            const res = createResponseObj(response);
+            const res = createResponseObj(response, this.serverOptions.publicDirectory);
 
             if(this.routes.some(route => route.path === req.path && route.method ===  req.method)) {
-                this.routes
-                    .filter(route => route.path === req.path  && route.method ===  req.method)[0]
-                    .handler(req, res);
+                const matchRoutes = this.routes
+                    .filter(route => route.path === req.path  && route.method ===  req.method)[0];
+                
+                if(matchRoutes.options && matchRoutes.options.usePublicDirectory) res.usePublicDirectory = true;
+                
+                matchRoutes.handler(req, res);
             }
             else {
                 response.writeHead(404);
@@ -58,3 +63,5 @@ class Server implements IServer {
         return this;
     }
 }
+
+module.exports = Server;
