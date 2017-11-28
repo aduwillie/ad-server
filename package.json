@@ -1,12 +1,13 @@
 {
   "name": "ad-server",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "A simple node.js server",
   "main": "dist/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rimraf ./dist",
-    "build": "npm run clean && tsc"
+    "build:tsc": "npm run clean && tsc",
+    "build:webpack": "npm run clean && webpack"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,8 @@
     "@types/node": "^8.0.53",
     "chalk": "^2.3.0",
     "rimraf": "^2.6.2",
-    "typescript": "^2.6.1"
+    "ts-loader": "^3.1.1",
+    "typescript": "^2.6.1",
+    "webpack": "^3.8.1"
   }
 }

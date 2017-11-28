@@ -17,4 +17,10 @@ exports.STATIC_FILE_TYPES = [
     '.mp3',
     '.pdf',
     '.xml',
+    'json',
+    'woff',
+    'tty',
+    'eof',
+    'otf',
+    'svg',
 ];

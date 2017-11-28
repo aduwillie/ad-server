@@ -1,7 +1,9 @@
 import * as url from 'url';
 import * as fs from 'fs';
-import { IRequest, IResponse } from './interfaces';
+import * as queryString from 'querystring';
+import { IRequest, IResponse, IExtendedRequest } from './interfaces';
 import { STATIC_FILE_TYPES } from './constants';
+import { IncomingMessage } from 'http';
 
 export const readFile = (filePath: string) => {
     try {
@@ -11,7 +13,7 @@ export const readFile = (filePath: string) => {
     }
 };
 
-export const createRequestObj = (request: any): IRequest => {
+export const createRequestObj = (request: IncomingMessage): IRequest => {
     if (request.url) {
         const parsedUrl = url.parse(request.url, true);
         if (parsedUrl) {
@@ -119,3 +121,19 @@ export const getMimeType = (filename: string) => {
             'text/plain';
     }
 };
+
+export const parseJson = (input: string) => {
+    try {
+        return JSON.parse(input) || {};
+    } catch (error) {
+        return {};
+    }
+}
+
+export const parseQueryString = (input: string) => {
+    try {
+        return queryString.parse(input) || {};
+    } catch (error) {
+        return {};
+    }
+}

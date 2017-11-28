@@ -1,3 +1,5 @@
+import { IncomingMessage } from "http";
+
 export interface IServerOptions {
     port: number;
     publicDirectory?: string;
@@ -14,6 +16,8 @@ export interface IRequest {
     query: string;
     path: string;
     method: string;
+    body?: string | object | JSON;
+    queryString?: any;
 }
 
 export interface IResponse {
@@ -45,4 +49,15 @@ export interface IServer {
     addPublicDirectory: (path: string) => IServer;
     addRoute: (routOptions: IRouteOptions) => IServer;
     listen: () => IServer;
+}
+
+export interface IExtendedRequest extends IncomingMessage {
+    body: string | JSON | Object;
+}
+
+export interface IBodyParseResult {
+    json: Object,
+    qs: {
+        [key: string]: string | string[];
+    };
 }

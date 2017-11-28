@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const url = require("url");
 const fs = require("fs");
+const queryString = require("querystring");
 const constants_1 = require("./constants");
 exports.readFile = (filePath) => {
     try {
@@ -99,7 +100,35 @@ exports.getMimeType = (filename) => {
             return 'application/pdf';
         case '.xml':
             return 'application/xml';
+        case '.json':
+            return 'application/json';
+        case '.woff':
+            return 'application/font-woff';
+        case '.ttf':
+            return 'application/font-ttf';
+        case '.eot':
+            return 'application/vnd.ms-fontobject';
+        case '.otf':
+            return 'application/font-otf';
+        case '.svg':
+            return 'application/image/svg+xml';
         default:
             'text/plain';
+    }
+};
+exports.parseJson = (input) => {
+    try {
+        return JSON.parse(input) || {};
+    }
+    catch (error) {
+        return {};
+    }
+};
+exports.parseQueryString = (input) => {
+    try {
+        return queryString.parse(input) || {};
+    }
+    catch (error) {
+        return {};
     }
 };
