@@ -13,7 +13,7 @@ export interface IServerOptions {
 
 export interface IRequest {
     url: string;
-    query: string;
+    query: { [key: string]: string | string[] | undefined };
     path: string;
     method: string;
     body?: string | object | JSON;

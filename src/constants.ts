@@ -22,3 +22,28 @@ export const STATIC_FILE_TYPES: string[] = [
     'otf',
     'svg',
 ];
+
+export const MIME_TYPE_MAPPING: { [key: string]: string } = {
+    '.txt': 'text/plain',
+    '.html': 'text/html',
+    '.css': 'text/css',
+    '.js': 'text/javascript',
+    '.png': 'image/png',
+    '.jpg': 'image/jpg',
+    '.jpeg': 'image/jpeg',
+    '.bmp': 'image/bmp',
+    '.webp': 'image/webp',
+    '.midi': 'audio/midi',
+    '.webm': 'audio/webm',
+    '.wav': 'audio/wav',
+    '.mp4': 'video/mp4',
+    '.mp3': 'audio/mp3',
+    '.pdf': 'application/pdf',
+    '.xml': 'application/xml',
+    '.json': 'application/json',
+    '.woff': 'application/font-woff',
+    '.ttf': 'application/font-ttf',
+    '.eot': 'application/vnd.ms-fontobject',
+    '.otf': 'application/font-otf',
+    '.svg': 'application/image/svg+xml',
+}
