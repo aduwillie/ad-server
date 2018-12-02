@@ -62,7 +62,7 @@ export const isStaticFile = (filename: string) => {
 };
 
 export const getFileType = (filename: string) => {
-    let type = 'text/plain';
+    let type = '.txt';
     for (let i = 0; i < STATIC_FILE_TYPES.length; i++) {
         if (filename.endsWith(STATIC_FILE_TYPES[i])) {
             type = STATIC_FILE_TYPES[i];

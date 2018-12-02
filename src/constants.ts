@@ -15,12 +15,12 @@ export const STATIC_FILE_TYPES: string[] = [
     '.mp3',
     '.pdf',
     '.xml',
-    'json',
-    'woff',
-    'tty',
-    'eof',
-    'otf',
-    'svg',
+    '.json',
+    '.woff',
+    '.tty',
+    '.eof',
+    '.otf',
+    '.svg',
 ];
 
 export const MIME_TYPE_MAPPING: { [key: string]: string } = {
