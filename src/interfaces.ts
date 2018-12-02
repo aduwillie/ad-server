@@ -58,6 +58,6 @@ export interface IExtendedRequest extends IncomingMessage {
 export interface IBodyParseResult {
     json: Object,
     qs: {
-        [key: string]: string | string[];
+        [key: string]: string | string[] | undefined;
     };
 }

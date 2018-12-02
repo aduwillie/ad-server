@@ -65,6 +65,9 @@ class Server implements IServer {
     }
 
     listen = () => {
+        if (!this.serverOptions.port) {
+            throw new Error('valid PORT not set!');
+        }
         const server = this.serverOptions.ssl
             ? https.createServer({
                   key: this.serverOptions.ssl.key,
@@ -81,10 +84,10 @@ class Server implements IServer {
             }
 
             // Set up request error handling
-            request.on('error', (err: Error) => console.log(err.stack));
+            request.on('error', (err: Error) => console.error(err.stack));
 
             // Set up response error handling
-            response.on('error', (err: Error) => console.log(err.stack));
+            response.on('error', (err: Error) => console.error(err.stack));
 
             const req = createRequestObj(request);
 
@@ -107,7 +110,7 @@ class Server implements IServer {
                 }
             }
         });
-        this.serverOptions.port = this.serverOptions.port || server.address().port;
+        this.serverOptions.port = this.serverOptions.port;
         server.listen(this.serverOptions.port);
         console.log(`Server listening on port ${this.serverOptions.port}`);
         return this;
