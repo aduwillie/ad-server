@@ -1,10 +1,8 @@
 import * as http from 'http';
 import * as https from 'https';
 import * as path from 'path';
-import * as chalk from 'chalk';
 import { IServer, IServerOptions, IRouteOptions, IExtendedRequest, IRequest, IResponse, IBodyParseResult } from './interfaces';
 import { createRequestObj, createResponseObj, readFile, isStaticFile, getMimeType, getFileType, parseJson, parseQueryString } from './utils';
-import { error } from 'util';
 import { IncomingMessage, ServerResponse } from 'http';
 import { Buffer } from 'buffer';
 
@@ -92,7 +90,7 @@ class Server implements IServer {
 
             if (isStaticFile(req.path)) {
                 response.writeHead(200, { 'Content-Type': getMimeType(getFileType(req.path)) });
-                const pathToFile = path.resolve(this.serverOptions.publicDirectory, req.path.slice(1));
+                const pathToFile = path.resolve(this.serverOptions.publicDirectory || __dirname, req.path.slice(1));
                 response.end(readFile(pathToFile));
             } else {
                 const res = createResponseObj(response, this.serverOptions.publicDirectory);
