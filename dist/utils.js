@@ -68,8 +68,8 @@ exports.getFileType = (filename) => {
     return type;
 };
 exports.getMimeType = (filename) => {
-    if (filename) {
-        return 'text/plain';
+    if (!filename) {
+        return 'application/octet-stream';
     }
     return constants_1.MIME_TYPE_MAPPING[filename];
 };

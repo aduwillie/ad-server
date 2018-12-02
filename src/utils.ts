@@ -73,8 +73,8 @@ export const getFileType = (filename: string) => {
 };
 
 export const getMimeType = (filename: string) => {
-    if (filename) {
-        return 'text/plain';
+    if (!filename) {
+        return 'application/octet-stream';
     }
     return MIME_TYPE_MAPPING[filename];
 };
