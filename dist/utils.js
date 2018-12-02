@@ -31,8 +31,12 @@ exports.createRequestObj = (request) => {
 exports.createResponseObj = (response, publicDirectory = '') => {
     const obj = {
         sendFile: (filename, mimeType) => {
+            if (!filename) {
+                throw new Error('Filename is required ');
+            }
             response.writeHead(200, { 'Content-Type': mimeType || 'text/html' });
-            response.end(exports.readFile(obj.usePublicDirectory ? publicDirectory + filename : filename));
+            const fileToServe = obj.usePublicDirectory ? `${publicDirectory}/${filename}` : filename
+            response.end(exports.readFile(fileToServe));
         },
         send: (data) => response.end(data),
         sendJSON: (data) => {
