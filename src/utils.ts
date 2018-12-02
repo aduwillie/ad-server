@@ -34,7 +34,7 @@ export const createResponseObj = (response: any, publicDirectory: string = ''): 
     const obj: IResponse = {
         sendFile: (filename: string, mimeType?: string) => {
             response.writeHead(200, { 'Content-Type': mimeType || MIME_TYPE_MAPPING['.html'] });
-            response.end(readFile(obj.usePublicDirectory ? publicDirectory + filename : filename));
+            response.end(readFile(obj.usePublicDirectory ? `${publicDirectory}/${filename}` : filename));
         },
         send: (data: any) => response.end(data),
         sendJSON: (data: any) => {
