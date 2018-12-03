@@ -31,7 +31,7 @@ exports.createRequestObj = (request) => {
 exports.createResponseObj = (response, publicDirectory = '') => {
     const obj = {
         sendFile: (filename, mimeType) => {
-            response.writeHead(200, { 'Content-Type': mimeType || constants_1.MIME_TYPE_MAPPING['.html'] });
+            response.writeHead(200, { 'Content-Type': mimeType || constants_1.MIME_TYPE_MAPPING['.txt'] });
             response.end(exports.readFile(obj.usePublicDirectory ? `${publicDirectory}/${filename}` : filename));
         },
         send: (data) => response.end(data),
@@ -40,7 +40,6 @@ exports.createResponseObj = (response, publicDirectory = '') => {
             response.end(JSON.stringify(data));
         },
         redirect: (redirectUrl) => {
-            console.log('In redirect');
             response.writeHead(301, { Location: redirectUrl });
             response.end();
         }
@@ -88,4 +87,12 @@ exports.parseQueryString = (input) => {
     catch (error) {
         return {};
     }
+};
+exports.randomString = (length) => {
+    let text = '';
+    var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    for (var i = 0; i < length; i++) {
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+    return text;
 };

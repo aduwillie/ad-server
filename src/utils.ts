@@ -33,7 +33,7 @@ export const createRequestObj = (request: IncomingMessage): IRequest => {
 export const createResponseObj = (response: any, publicDirectory: string = ''): IResponse => {
     const obj: IResponse = {
         sendFile: (filename: string, mimeType?: string) => {
-            response.writeHead(200, { 'Content-Type': mimeType || MIME_TYPE_MAPPING['.html'] });
+            response.writeHead(200, { 'Content-Type': mimeType || MIME_TYPE_MAPPING['.txt'] });
             response.end(readFile(obj.usePublicDirectory ? `${publicDirectory}/${filename}` : filename));
         },
         send: (data: any) => response.end(data),
@@ -42,7 +42,6 @@ export const createResponseObj = (response: any, publicDirectory: string = ''): 
             response.end(JSON.stringify(data));
         },
         redirect: (redirectUrl: string) => {
-            console.log('In redirect');
             response.writeHead(301, { Location: redirectUrl });
             response.end();
         }
@@ -85,7 +84,7 @@ export const parseJson = (input: string) => {
     } catch (error) {
         return {};
     }
-}
+};
 
 export const parseQueryString = (input: string) => {
     try {
@@ -93,4 +92,13 @@ export const parseQueryString = (input: string) => {
     } catch (error) {
         return {};
     }
-}
+};
+
+export const randomString = (length: Number) => {
+    let text = '';
+    var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    for (var i = 0; i < length; i++) {
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+    return text;
+};

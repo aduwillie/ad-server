@@ -48,3 +48,9 @@ exports.MIME_TYPE_MAPPING = {
     '.otf': 'application/font-otf',
     '.svg': 'application/image/svg+xml',
 };
+exports.SYSTEM_TOPICS = {
+    INFO: 'info',
+    WARN: 'warn',
+    ERROR: 'error',
+    LOG: 'log',
+};

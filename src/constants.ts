@@ -46,4 +46,11 @@ export const MIME_TYPE_MAPPING: { [key: string]: string } = {
     '.eot': 'application/vnd.ms-fontobject',
     '.otf': 'application/font-otf',
     '.svg': 'application/image/svg+xml',
-}
+};
+
+export const SYSTEM_TOPICS = {
+    INFO: 'info',
+    WARN: 'warn',
+    ERROR: 'error',
+    LOG: 'log',
+};

@@ -1,6 +1,6 @@
 {
   "name": "ad-server",
-  "version": "1.2.3",
+  "version": "1.2.4-experimental",
   "description": "A simple node.js server",
   "main": "dist/server.js",
   "scripts": {

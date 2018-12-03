@@ -61,3 +61,26 @@ export interface IBodyParseResult {
         [key: string]: string | string[] | undefined;
     };
 }
+
+export interface ISubscriber {
+    (logMessage: string): void;
+}
+
+export interface ISubscription {
+    token: string;
+    func: ISubscriber;
+}
+
+export interface IPublisher {
+    subscribe: (topic: string, subscriber: ISubscriber) => string;
+    unsubscribe: (token: string) => Boolean;
+    publish: (topic: string, message: string) => Boolean;
+}
+
+export interface ILogger {
+    subscribe: (topic: string, func: ISubscriber) => string;
+    info: (message: string) => Boolean;
+    warn: (message: string) => Boolean;
+    error: (message: string) => Boolean;
+    log: (message: string) => Boolean;
+}
