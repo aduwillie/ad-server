@@ -1,4 +1,4 @@
-export const STATIC_FILE_TYPES: string[] = [
+const STATIC_FILE_TYPES = [
     '.txt',
     '.html',
     '.css',
@@ -23,7 +23,7 @@ export const STATIC_FILE_TYPES: string[] = [
     '.svg',
 ];
 
-export const MIME_TYPE_MAPPING: { [key: string]: string } = {
+const MIME_TYPE_MAPPING = {
     '.txt': 'text/plain',
     '.html': 'text/html',
     '.css': 'text/css',
@@ -46,11 +46,31 @@ export const MIME_TYPE_MAPPING: { [key: string]: string } = {
     '.eot': 'application/vnd.ms-fontobject',
     '.otf': 'application/font-otf',
     '.svg': 'application/image/svg+xml',
+    '.*': 'application/octet-stream',
 };
 
-export const SYSTEM_TOPICS = {
+const SYSTEM_TOPICS = {
     INFO: 'info',
     WARN: 'warn',
     ERROR: 'error',
     LOG: 'log',
+};
+
+const SERVER_STATUS = {
+    INITIALIZING: 'initialize',
+    STARTED: 'started',
+    STOPPED: 'stopped'
+};
+
+const DEFAULT_SERVER_CONFIG = {
+    port: 3555,
+    allowCors: false,
+}
+
+module.exports = {
+    STATIC_FILE_TYPES,
+    MIME_TYPE_MAPPING,
+    SYSTEM_TOPICS,
+    SERVER_STATUS,
+    DEFAULT_SERVER_CONFIG,
 };

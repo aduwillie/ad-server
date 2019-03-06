@@ -1,13 +1,10 @@
 {
   "name": "ad-server",
-  "version": "1.2.4-experimental",
+  "version": "1.2.5-experimental",
   "description": "A simple node.js server",
   "main": "dist/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "rimraf ./dist",
-    "build:tsc": "npm run clean && tsc",
-    "build:webpack": "npm run clean && webpack"
+    "test": "jest test/server.spec.js"
   },
   "repository": {
     "type": "git",
@@ -24,13 +21,11 @@
   },
   "homepage": "https://github.com/aduwillie/ad-server#readme",
   "devDependencies": {
-    "@types/chalk": "^2.2.0",
-    "@types/node": "^8.0.53",
-    "chalk": "^2.3.0",
-    "rimraf": "^2.6.2",
-    "ts-loader": "^3.1.1",
-    "typescript": "^2.6.1",
-    "webpack": "^3.8.1"
+    "@types/node": "^11.10.4",
+    "jest": "^24.1.0",
+    "sinon": "^7.2.7"
   },
-  "dependencies": {}
+  "dependencies": {
+    "http-shutdown": "^1.2.0"
+  }
 }
