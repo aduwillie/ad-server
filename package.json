@@ -27,5 +27,8 @@
   },
   "dependencies": {
     "http-shutdown": "^1.2.0"
+  },
+  "peerDependencies": {
+    "sshpk": "^1.16.1"
   }
 }
